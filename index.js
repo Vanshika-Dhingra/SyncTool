@@ -20,7 +20,7 @@ const path = window.__TAURI__.path
 
   
   document.getElementById('preview').addEventListener('click', () => {
-invoke('extract_jpg_preview', { rawDirFilePath: '/Users/vanshikadhingra/dass/src-tauri/images' })
+invoke('extract_jpg_preview', { rawDirFilePath: '/Users/vanshikadhingra/OneDrive - International Institute of Information Technology/8Mar2023_dass/src-tauri/images' })
  
   });
 
