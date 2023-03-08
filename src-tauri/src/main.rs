@@ -12,7 +12,7 @@ use std::path::Path;
 fn extract_jpg_preview(raw_dir_file_path: String) {
     // Run the exiftool command to extract the JPEG preview.
     println!("extract_jpg_preview called with path: {}", raw_dir_file_path);
-    let mut dir = "./src/image2/".to_owned();
+    let mut dir = "/Users/vanshikadhingra/OneDrive - International Institute of Information Technology/8Mar2023_dass/src-tauri/src/image2".to_owned();
     dir = dir + "%f_%t%-c.%s";
 
     Command::new("exiftool")
