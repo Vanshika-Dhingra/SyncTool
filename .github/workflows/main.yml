@@ -11,6 +11,7 @@ jobs:
       fail-fast: false
       matrix:
         platform: [macos-latest, ubuntu-20.04, windows-latest]
+        tauri_platform: [darwin-x64, linux-x64-gnu, win32-x64-msvc]
     runs-on: ${{ matrix.platform }}
     steps:
       - name: Checkout repository
@@ -40,6 +41,18 @@ jobs:
       - name: Install app dependencies and build web
         # Remove `&& yarn build` if you build your frontend in `beforeBuildCommand`
         run: npm install && npm run build # Change this to npm, yarn or pnpm.
+
+      - name: Install @tauri-apps/cli for mac
+        if: matrix.tauri_platform == 'darwin-x64'
+        run: npm install @tauri-apps/cli-darwin-x64
+
+      - name: Install @tauri-apps/cli for linux
+        if: matrix.tauri_platform == 'linux-x64-gnu'
+        run: npm install @tauri-apps/cli-linux-x64-gnu
+
+      - name: Install @tauri-apps/cli for windows
+        if: matrix.tauri_platform == 'win32-x64-msvc'
+        run: npm install @tauri-apps/cli-win32-x64-msvc
 
       - name: Build the app
         uses: tauri-apps/tauri-action@v0
