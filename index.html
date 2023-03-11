@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Photo Compressor</title>
+    <script src="tauri.js"></script>
     <style>
       /* Style the body */
       body {
@@ -74,12 +75,14 @@
     <div class="container">
       <h1>Photo Compressor</h1>
       <form>
+      <!-- <form>
         <label for="folder">Select a folder:</label>
-        <input type="file" id="folder" webkitdirectory mozdirectory />
+
+        <input type="file" id="folder" webkitdirectory mozdirectory /> -->
+        <button type="button" id="folder">input folder</button>
         <button id="compress">Compress</button>
-        <button id="preview">Extract Preview</button>
-        <button id="download-compressed">Download Compressed Image</button>
-        <button id="download-preview">Download Preview</button>
+        <button type="button" id="preview">Extract Preview</button>
+        <button type="button" id="outFolder">Output folder</button>
       </form>
     </div>
 
