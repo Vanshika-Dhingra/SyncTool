@@ -20,6 +20,7 @@ let outputFolderPath = '';
 
 
 
+<<<<<<< HEAD
 
 
 document.getElementById('folder').addEventListener('click', () => {
@@ -57,4 +58,11 @@ document.getElementById('preview').addEventListener('click', () => {
         console.log(res)
       })
 });
+=======
+  
+  document.getElementById('preview').addEventListener('click', () => {
+invoke('extract_jpg_preview', { rawDirFilePath: '/Users/vanshikadhingra/OneDrive - International Institute of Information Technology/8Mar2023_dass/src-tauri/images' })
+ 
+  });
+>>>>>>> 382199f39881d4ddea18018b4dce49487d9d5785
 
