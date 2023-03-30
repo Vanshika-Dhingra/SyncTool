@@ -52,8 +52,18 @@ document.getElementById('outFolder').addEventListener('click', () => {
     });
 });
 
+document.getElementById('compress').addEventListener('click', () => {
+  invoke('compress_jpeg', { rawDirFilePath: inputFolderPath,outputFolder: outputFolderPath })
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((err) => {
+      console.error(err)
+    })
+});
+
 document.getElementById('preview').addEventListener('click', () => {
-      invoke('extract_jpg_preview', { rawDirFilePath: inputFolderPath,outputFolder: outputFolderPath }, (res) => {
-        console.log(res)
-      })
+  invoke('extract_jpg_preview', { rawDirFilePath: inputFolderPath,outputFolder: outputFolderPath }, (res) => {
+    console.log(res)
+  })
 });
