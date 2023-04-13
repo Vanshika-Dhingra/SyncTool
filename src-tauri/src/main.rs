@@ -130,6 +130,7 @@ async fn extract_jpg_preview(raw_dir_file_path: &str, output_folder: &str) -> Re
       output.push_str(&line);
     }
   }
+  print!("output is:{}",output);
   Ok(output)
 }
 
@@ -174,9 +175,20 @@ fn compress_jpeg(raw_dir_file_path: &str, output_folder: &str) {
     }
 }
 
+#[tauri::command]
+async fn extract_and_compress_jpg_preview(raw_dir_file_path: &str, output_folder: &str) -> Result<String, String> {
+    // Extract the previews
+    let extracted_preview = extract_jpg_preview(raw_dir_file_path, output_folder).await?;
+
+    // Compress the previews
+    compress_jpeg(&extracted_preview, output_folder);
+
+    Ok("Previews extracted and compressed successfully".to_string())
+}
+
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![change_timestamps,compress_jpeg,extract_jpg_preview]) // Add compress_jpeg here
+        .invoke_handler(tauri::generate_handler![change_timestamps,compress_jpeg,extract_jpg_preview,extract_and_compress_jpg_preview]) // Add compress_jpeg here
         .run(tauri::generate_context!())
         .expect("failed to run app");
 }

@@ -65,6 +65,16 @@ document.getElementById('compress').addEventListener('click', () => {
     })
 });
 
+document.getElementById('previewCompress').addEventListener('click', () => {
+  invoke('extract_and_compress_jpg_preview', { rawDirFilePath: inputFolderPath,outputFolder: outputFolderPath })
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((err) => {
+      console.error(err)
+    })
+});
+
 // document.getElementById('changeTimestamps').addEventListener('click', () => {
 //   const selectedDate = new Date(document.getElementById("date").value);
 //   console.log(selectedDate)
