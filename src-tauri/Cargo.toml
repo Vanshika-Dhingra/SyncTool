@@ -23,6 +23,9 @@ mozjpeg = "0.9.4"
 mozjpeg-sys = "1.0.6"
 url = "2.2.2"
 exif-rs = "0.1.0"
+chrono = "0.4.24"
+walkdir = "2.3.3"
+async-recursion = "0.3"
 
 [features]
 # by default Tauri runs in production mode
