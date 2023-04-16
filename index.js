@@ -16,6 +16,7 @@ const Command=window.__TAURI__.shell.Command
 
 let inputFolderPath = '';
 let outputFolderPath = '';
+let newoutput='';
 // const folderInput = document.getElementById("folder");
 // folderInput.addEventListener("change", (event) => {
 //   const folderPath = event.target.value;
@@ -47,8 +48,8 @@ document.getElementById('outFolder').addEventListener('click', () => {
     })
     .then((result) => {
       // result contains an array of paths that the user has selected
-      //outputFolderPath=result+'/'
-      outputFolderPath = `${result}/output%f_%t%-c.%s`;
+      //newoutput=result+'/'
+      outputFolderPath = `${result}`;
     })
     .catch((err) => {
       console.error(err);
@@ -74,6 +75,32 @@ document.getElementById('previewCompress').addEventListener('click', () => {
       console.error(err)
     })
 });
+
+async function func()
+{
+  invoke('extract_jpg_preview', { rawDirFilePath: inputFolderPath,outputFolder: outputFolderPath+"/preview" })
+    .then((res) => {
+      console.log(res)
+    })
+    .catch((err) => {
+      console.error(err)
+    })
+}
+
+// document.getElementById('previewCompress').addEventListener('click', () => {
+//   func();
+//   invoke('compress_jpeg', { rawDirFilePath: outputFolderPath+"/preview",outputFolder: outputFolderPath+"/output"})
+//     .then((res) => {
+//       console.log(res)
+//     })
+//     .catch((err) => {
+//       console.error(err)
+//     })
+//   setTimeout(function() {
+//     console.log("Sleep");
+//   }, 3000);
+
+// });
 
 // document.getElementById('changeTimestamps').addEventListener('click', () => {
 //   const selectedDate = new Date(document.getElementById("date").value);
@@ -166,7 +193,15 @@ document.getElementById('changeTimestamps').addEventListener('click', () => {
 
 
 
-
+// document.getElementById('previewCompress').addEventListener('click', () => {
+//   invoke('extract_and_compress_jpg_preview', { rawDirFilePath: inputFolderPath,outputFolder: outputFolderPath })
+//     .then((res) => {
+//       console.log(res)
+//     })
+//     .catch((err) => {
+//       console.error(err)
+//     })
+// });
 
 
 document.getElementById('preview').addEventListener('click', () => {
