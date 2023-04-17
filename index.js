@@ -34,6 +34,7 @@ document.getElementById('folder').addEventListener('click', () => {
     .then((result) => {
       // result contains an array of paths that the user has selected
       inputFolderPath=result
+      alert("input folder selected")
     })
     .catch((err) => {
       console.error(err);
@@ -49,7 +50,8 @@ document.getElementById('outFolder').addEventListener('click', () => {
     .then((result) => {
       // result contains an array of paths that the user has selected
       //newoutput=result+'/'
-      outputFolderPath = `${result}`;
+      outputFolderPath = `${result}/`;
+      alert("output folder selected")
     })
     .catch((err) => {
       console.error(err);
@@ -59,6 +61,7 @@ document.getElementById('outFolder').addEventListener('click', () => {
 document.getElementById('compress').addEventListener('click', () => {
   invoke('compress_jpeg', { rawDirFilePath: inputFolderPath,outputFolder: outputFolderPath })
     .then((res) => {
+      alert("compressing photos")
       console.log(res)
     })
     .catch((err) => {
@@ -69,23 +72,13 @@ document.getElementById('compress').addEventListener('click', () => {
 document.getElementById('previewCompress').addEventListener('click', () => {
   invoke('extract_and_compress_jpg_preview', { rawDirFilePath: inputFolderPath,outputFolder: outputFolderPath })
     .then((res) => {
+      alert("compressing after extracting previews")
       console.log(res)
     })
     .catch((err) => {
       console.error(err)
     })
 });
-
-async function func()
-{
-  invoke('extract_jpg_preview', { rawDirFilePath: inputFolderPath,outputFolder: outputFolderPath+"/preview" })
-    .then((res) => {
-      console.log(res)
-    })
-    .catch((err) => {
-      console.error(err)
-    })
-}
 
 // document.getElementById('previewCompress').addEventListener('click', () => {
 //   func();
@@ -207,6 +200,7 @@ document.getElementById('changeTimestamps').addEventListener('click', () => {
 document.getElementById('preview').addEventListener('click', () => {
   invoke('extract_jpg_preview', { rawDirFilePath: inputFolderPath,outputFolder: outputFolderPath })
     .then((res) => {
+      alert("extracting previews")
       console.log(res)
     })
     .catch((err) => {
