@@ -4,7 +4,7 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
     background-color: rgb(0, 0, 0);
-    background-image: url('/Users/vanshikadhingra/OneDrive - International Institute of Information Technology/8Mar2023_dass/dass1.jpeg');
+    background-image: url('./dass1.jpeg');
 }
 
   
@@ -13,7 +13,7 @@ body {
     max-width: 600px;
     padding: 20px;
     text-align: center;
-    background-image: url('/Users/vanshikadhingra/OneDrive - International Institute of Information Technology/8Mar2023_dass/dass.jpeg'); 
+    background-image: url('./dass.jpeg'); 
     border-radius: 10px;
     box-shadow: 0px 0px 10px #ccc;
   }
