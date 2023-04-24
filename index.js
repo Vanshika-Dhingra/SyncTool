@@ -61,7 +61,7 @@ document.getElementById('outFolder').addEventListener('click', () => {
 document.getElementById('compress').addEventListener('click', () => {
   invoke('compress_jpeg', { rawDirFilePath: inputFolderPath,outputFolder: outputFolderPath })
     .then((res) => {
-      alert("compressing photos")
+      // alert("compressing photos")
       console.log(res)
     })
     .catch((err) => {
@@ -200,7 +200,7 @@ document.getElementById('changeTimestamps').addEventListener('click', () => {
 document.getElementById('preview').addEventListener('click', () => {
   invoke('extract_jpg_preview', { rawDirFilePath: inputFolderPath,outputFolder: outputFolderPath })
     .then((res) => {
-      alert("extracting previews")
+      alert("previews extracted")
       console.log(res)
     })
     .catch((err) => {
